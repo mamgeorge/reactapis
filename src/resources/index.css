@@ -1,0 +1,20 @@
+
+body { background: black; color: white; font-family: verdana;  margin: auto ; text-align: center; }
+
+table { border-collapse: collapse; border: 0px; }
+
+th , td { padding: 8px; border-collapse: collapse; border: gray solid 1px; }
+
+a, a:hover, a:visited { color: silver; text-decoration: none; }
+
+h1,h2,h3,h4,h5,h6 { color: #e00000; display: inline; }
+
+hr { width: 80%; }
+
+.wht { color: white; }
+.sml { width: 30px; }
+.btn { background: darkslategray; color: white; text-align: center; }
+.tbls { height: 450px; overflow: auto; } 
+.logo { animation: spinner infinite 20s linear; width: 40px; }
+
+@keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

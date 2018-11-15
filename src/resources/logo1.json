@@ -1,0 +1,27 @@
+{
+	"data": {
+		"id": "LUK.1.1",
+		"orgId": "LUK.1.1",
+		"bookId": "LUK",
+		"chapterId": "LUK.1",
+		"bibleId": "de4e12af7f28f599-01",
+		"reference": "Luke 1:1",
+		"content": "STATIC: <p class=\"p\"><span data-number=\"1\" class=\"v\">1</span>Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among us, </p>",
+		"copyright": "PUBLIC DOMAIN except in the United Kingdom, where a Crown Copyright applies to printing the KJV. See http://www.cambridge.org/about-us/who-we-are/queens-printers-patent",
+		"next": {
+			"id": "LUK.1.2",
+			"number": "2"
+		},
+		"previous": {
+			"id": "LUK.intro.0",
+			"number": "0"
+		}
+	},
+	"meta": {
+		"fums": "<script>\nvar _BAPI=_BAPI||{};\nif(typeof(_BAPI.t)==='undefined'){\ndocument.write('\\x3Cscript src=\"'+document.location.protocol+'//cdn.scripture.api.bible/fums/fumsv2.min.js\"\\x3E\\x3C/script\\x3E');}\ndocument.write(\"\\x3Cscript\\x3E_BAPI.t('' + unique + '');\\x3C/script\\x3E\");\n</script><noscript><img src=\"https://d3a2okcloueqyx.cloudfront.net/nf1?t=' + unique + '\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" /></noscript>",
+		"fumsId": "e2af62ad-4059-4af2-85eb-439e22691465",
+		"fumsJsInclude": "cdn.scripture.api.bible/fums/fumsv2.min.js",
+		"fumsJs": "var _BAPI=_BAPI||{};if(typeof(_BAPI.t)!='undefined'){ _BAPI.t('e2af62ad-4059-4af2-85eb-439e22691465'); }",
+		"fumsNoScript": "<img src=\"https://d3btgtzu3ctdwx.cloudfront.net/nf1?t=e2af62ad-4059-4af2-85eb-439e22691465\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" />"
+	}
+}
