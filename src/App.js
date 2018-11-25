@@ -1,7 +1,7 @@
 // https://reacttraining.com/react-router/web/guides/quick-start
 import React, { Component } from 'react';
 import { BrowserRouter as Router , Route } from 'react-router-dom';
-import './resources/index.css';
+import './resources/basics.css';
 import Header from './home/Header';
 import Index from './home/Index';
 import Home from './home/Home';
@@ -42,15 +42,16 @@ class Main extends Component {
 			<div style={{ backgroundColor: '#303030' }} >
 				<Route path='/' exact component={Home} />
 				<Route path='/name' component={Name} />
-				<Route path='/word' component={Logos} />
-				<Route path='/date' component={ ( ) => <h3 style = {{ color: "green" }}>{ new Date( ).toISOString( ) }</h3>} />
+				<Route path='/date' component={ ( ) =>
+					<h3 style = {{ color: "green" }}>{ new Date( ).toISOString( ) }</h3>} />
 
 				<Route path='/users' component={Users} />
-				<Route path='/hacks' component={Hacks} />
 				<Route path='/photos' component={Photos} />
-				<Route path='/paged' component={Paged} />
-
+				<Route path='/hacks' component={Hacks} />
 				<Route path='/apod' component={Apod} />
+
+				<Route path='/paged' component={Paged} />
+				<Route path='/word' component={Logos} />
 			</div>
 		);
 	}

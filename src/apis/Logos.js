@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadXhr } from '../home/Utils';
-import LogosList from './../resources/logo0.json'
+import LogosList from './../resources/logos.json'
 
 // https://scripture.api.bible/
 // "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/LUK.1.1?content-type=json&include-notes=false&include-titles=false&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false"
@@ -18,19 +18,21 @@ class Logos extends Component {
 
 	componentDidMount( ) { loadXhr( this , LINK_LOGOS + BIBLE_API_KEY ); }
 
-	render( ) {
-		let data = this.state.data;
-		if (data === undefined || data === '' ) {
+	handleResponse() {
+		let data = LogosList ; // this.state.data;
+		if (data === undefined || data === '' || data.length === 0 ) {
 			data = LogosList;
-			console.log( 'BLANK: ' + data );
-			return ( <div>Please Wait...</div> );
-		}
+		} 
+		return data;
+	}
+
+	render( ) {
+		let data = this.handleResponse();
+		let words = data.response.search.result.passages.map( ( item ) => item.text ) ;
 		return (
-			// JSON.stringify( results )
-			// { data.response.search.result.passages.text }
-			// { content }
-			<div><center>[
-				{ LogosList.response.search.result.passages.map( ( item ) => item.text ) } ]</center></div>
+			<div><center style = {{ padding: "30px" }} >
+				<span dangerouslySetInnerHTML={{__html: words}}></span>
+				<br /></center></div>
 		);
 	}
 }
