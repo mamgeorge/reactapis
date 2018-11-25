@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { loadJson, loadApi } from '../home/Utils';
+import { dateTimeFormat } from './../resources/basics.js'
 import ApodList from './../resources/apod.json'
 import ISSList from './../resources/iss.json'
 
@@ -24,9 +25,8 @@ class Apod extends Component {
 
 	getLinkApod_Date() {
 		let date = new Date();
-		date.setDate(date.getDate() - 1);
-		date = date.toISOString().substr(0, 10);
-		let urlDate = LINK_APOD + date + NASA_API_KEY;
+		let dateFormatted = dateTimeFormat( date , 'yyyy-mm-dd' );
+		let urlDate = LINK_APOD + dateFormatted + NASA_API_KEY;
 		return urlDate;
 	}
 
@@ -54,9 +54,9 @@ class Apod extends Component {
 					<th>ISS</th>
 					<td><center>
 						{dataISS.message} /
-						{dataISS.timestamp} <br /> (
-						{dataISS.iss_position.longitude} ,
-						{dataISS.iss_position.latitude} )
+						{dataISS.timestamp} <br /> 
+						(	{dataISS.iss_position.longitude} , 
+							{dataISS.iss_position.latitude} )
 						</center></td>
 				</tr>
 				<tr key={data.date} >
