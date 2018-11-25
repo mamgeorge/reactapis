@@ -1,13 +1,13 @@
 
-body { background: black; color: white; font-family: verdana;  margin: auto ; text-align: center; }
+body { background: #404040 ; color: white; font-family: verdana;  margin: auto ; text-align: center; }
 
-table { border-collapse: collapse; border: 0px; }
+table , img { border-radius: 8px; }
 
-th , td { padding: 8px; border-collapse: collapse; border: gray solid 1px; }
-
-a, a:hover, a:visited { color: silver; text-decoration: none; }
+th , td { padding: 8px; border: gray solid 1px; border-radius: 8px; }
 
 h1,h2,h3,h4,h5,h6 { color: #e00000; display: inline; }
+
+a, a:hover, a:visited { color: silver; text-decoration: none; }
 
 hr { width: 80%; }
 

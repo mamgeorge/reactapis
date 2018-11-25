@@ -9,7 +9,7 @@ class Header extends Component {
 					<td style={{ border: "0px" }} >
 						<a href="/" ><img className="logo" src={redLogo} alt="redLogo" /></a>
 						</td>
-					<td style={{ border: "0px" }} >
+					<td  width="100%" style={{ border: "0px" }} >
 						<a href="/name" ><h1>MLG Website</h1></a>
 						</td>
 				</tr></tbody></table>
