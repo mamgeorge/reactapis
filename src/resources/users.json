@@ -21,7 +21,7 @@
 					"description": "Azores, Cape Verde Islands"
 				}
 			},
-			"email": "kubilay.degraaf@example.com",
+			"email": "STATIC_kubilay.degraaf@example.com",
 			"login": {
 				"uuid": "8267fdbb-481b-4cd0-9e6a-3b14949c1214",
 				"username": "greenmouse303",

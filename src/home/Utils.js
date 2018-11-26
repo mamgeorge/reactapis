@@ -1,6 +1,6 @@
 // https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
-export function loadApi(component , url) {
+export function loadApi(component, url) {
 	fetch(url)
 		.then(response => response.json())
 		.then(dataISS => { component.setState({ dataISS }) })
@@ -37,7 +37,25 @@ export function loadXhr(component, url) {
 		//	xhr.setRequestHeader( 'Access-Control-Allow-Methods', 'GET' );
 		//	xhr.setRequestHeader( 'Access-Control-Allow-Headers', 'Content-Type' );
 		//	xhr.setRequestHeader( 'Content-Type', ' application/json' );
-		xhr.onreadystatechange = data => { component.setState({ data }) };
+		xhr.onreadystatechange = data => {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					component.setState({ data })
+					console.log(xhr.responseText)
+				} else {
+					console.log("Error", xhr.statusText);
+				}
+			}
+		};
 		xhr.send();
 	}
+}
+
+export function handleResponse(component, anyList) {
+	let data = component.state.data;
+	if (data === undefined || data === '' || data.length === 0) {
+		data = anyList;
+	}
+	console.log('data: [' + data + ']');
+	return { data };
 }

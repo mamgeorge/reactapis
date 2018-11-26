@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { loadXhr } from '../home/Utils';
+import { loadXhr , handleResponse } from '../home/Utils';
 import LogosList from './../resources/logos.json'
 
 // https://scripture.api.bible/
@@ -18,16 +18,8 @@ class Logos extends Component {
 
 	componentDidMount( ) { loadXhr( this , LINK_LOGOS + BIBLE_API_KEY ); }
 
-	handleResponse() {
-		let data = LogosList ; // this.state.data;
-		if (data === undefined || data === '' || data.length === 0 ) {
-			data = LogosList;
-		} 
-		return data;
-	}
-
 	render( ) {
-		let data = this.handleResponse();
+		let { data } =  handleResponse(this, LogosList);
 		let words = data.response.search.result.passages.map( ( item ) => item.text ) ;
 		return (
 			<div><center style = {{ padding: "30px" }} >

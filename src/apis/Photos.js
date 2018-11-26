@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
-import { loadJson } from '../home/Utils';
-import PhotoList from './../resources/photos.json'
+import { loadJson, handleResponse } from '../home/Utils';
+import PhotosList from './../resources/photos.json'
 
 const LINK_PHOTOS = 'https://jsonplaceholder.typicode.com/photos';
 
 class Photos extends Component {
 
-	constructor(props) { super(props); this.state = { data: [ ], }; }
+	constructor(props) { super(props); this.state = { data: [], limit: 40 }; }
 
-	componentDidMount( ) { loadJson( this , LINK_PHOTOS + '' ); }
+	componentDidMount() { loadJson(this, LINK_PHOTOS + ''); }
 
-	render( ) {
-		let data = this.state.data;
-		if ( data === undefined ) { 
-			data = PhotoList; 
-			return ( <div>please refresh</div> );
-		} else {
-			return ( // JSON.stringify( data )
-			<div className = "tbls"><center><table><tbody>
+	render() {
+		let { data } = handleResponse(this, PhotosList);
+		return ( // JSON.stringify( data )
+			<div className="tbls"><center>
+				<b>Limiting photos to: { this.state.limit }!</b>
+				<table><tbody>
 				<tr><th>id</th><th>title</th><th>url</th><th>thumbnail</th></tr>
 				{
-					PhotoList.map((item) =>
+					data.slice( 0 , this.state.limit ).map((item) =>
 						<tr key={item.id} >
 							<th>{item.id}</th>
 							<td>{item.title}</td>
-							<td><img className = "sml" src = {item.url} alt = "url" /></td>
+							<td><img className="sml" src={item.url} alt="url" /></td>
 							<td><center>
-								<img className = "sml" src = {item.thumbnailUrl} alt = "thm" /></center></td>
+								<img className="sml" src={item.thumbnailUrl} alt="thm" /></center></td>
 						</tr>)
 				}
 			</tbody></table></center></div>
-			);
-		}
+		);
 	}
 }
 export default Photos;

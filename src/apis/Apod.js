@@ -10,24 +10,28 @@ const LINK_ISS = 'http://api.open-notify.org/iss-now.json';
 
 class Apod extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			data: [],
-			dataISS: [],
-		};
+	constructor(props) { 
+		super(props); 
+		this.state = { data: [], dataISS: [], dateNew: '' }; 
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
-		loadJson(this, this.getLinkApod_Date());
+		this.getDateFormatted();
+		loadJson(this, LINK_APOD + this.state.dateNew + NASA_API_KEY );
 		loadApi(this, LINK_ISS);
 	}
 
-	getLinkApod_Date() {
-		let date = new Date();
-		let dateFormatted = dateTimeFormat( date , 'yyyy-mm-dd' );
-		let urlDate = LINK_APOD + dateFormatted + NASA_API_KEY;
-		return urlDate;
+	getDateFormatted() {
+		let dateNow = new Date();
+		let dateFrm = dateTimeFormat( dateNow , 'yyyy-mm-dd' );
+		this.setState( { dateNew: dateFrm } );
+	}
+	
+	handleChange( evnt ) {
+		let dateFrm = evnt.target.value;
+		this.setState( { dateNew: dateFrm } ); 
+		loadJson(this, LINK_APOD + this.state.dateNew  + NASA_API_KEY );
 	}
 
 	handleResponses() {
@@ -37,7 +41,7 @@ class Apod extends Component {
 			data = ApodList;
 			// return (<div>Please Wait...</div>);
 		}
-		console.log('dataApd: [' + data + ']');
+		console.log('data: [' + data + ']');
 		//
 		let dataISS = this.state.dataISS;
 		if (dataISS === undefined || dataISS === '' || dataISS.length === 0 ) { // 
@@ -51,23 +55,24 @@ class Apod extends Component {
 	render() {
 		let { data , dataISS } = this.handleResponses();
 		return ( // JSON.stringify( results )
-			<div className = "tbls" ><center><table><tbody>
-				<tr>
-					<th>ISS</th>
-					<td><center>
-						{dataISS.message} /
-						{dataISS.timestamp} <br /> 
+			<div className = "tbls" ><center>
+				<table><tbody>
+
+				<tr><td colSpan = "2"><center>
+						<input onChange = { this.handleChange }  type = "text"
+							className = "entr" value = { this.state.dateNew } />&nbsp;
+
+						ISS: { dataISS.message } / { dataISS.timestamp } 
 						(	{dataISS.iss_position.longitude} , 
 							{dataISS.iss_position.latitude} )
-						</center></td>
-				</tr>
-				<tr key={data.date} >
-					<th>{data.date}</th>
-					<th>{data.title}</th>
-				</tr>
+					</center></td></tr>
+
+				<tr><td colSpan = "2" ><center>{data.date} / {data.title}</center></td></tr>
+
 				<tr>
-					<td>{data.explanation}</td>
-					<td><center><img width="300" src={data.url} alt="url" /></center></td>
+					<td width = "70%" style = {{ verticalAlign: "top" }}>{data.explanation}</td>
+					<td><center><img style = {{ width: "300px" , verticalAlign: "top" }}
+						src = {data.url} alt="url" /></center></td>
 				</tr>
 			</tbody></table></center></div>
 		);
