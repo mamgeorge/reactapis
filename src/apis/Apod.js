@@ -31,25 +31,27 @@ class Apod extends Component {
 	}
 
 	handleResponses() {
-		let dataISS = this.state.dataISS;
-		if (dataISS === undefined || dataISS === '' || dataISS.length === 0) { // 
-			dataISS = ISSList;
-		}
-		console.log('dataISS: [' + dataISS + ']');
 		//
 		let data = this.state.data;
-		if (data === undefined || data === '') {
+		if (data === undefined || data === '' || data.length === 0 ) {
 			data = ApodList;
 			// return (<div>Please Wait...</div>);
 		}
 		console.log('dataApd: [' + data + ']');
-		return { dataISS, data };
+		//
+		let dataISS = this.state.dataISS;
+		if (dataISS === undefined || dataISS === '' || dataISS.length === 0 ) { // 
+			dataISS = ISSList;
+		}
+		console.log('dataISS: [' + dataISS + ']');
+		//	
+		return { data , dataISS };
 	}	
 
 	render() {
-		let { dataISS, data } = this.handleResponses();
+		let { data , dataISS } = this.handleResponses();
 		return ( // JSON.stringify( results )
-			<div><center><table><tbody>
+			<div className = "tbls" ><center><table><tbody>
 				<tr>
 					<th>ISS</th>
 					<td><center>

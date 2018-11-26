@@ -1,4 +1,4 @@
-const { calcs } = require( './../src/resources/basics' );
+const { calcs } = require( './../src/resources/xtra' );
 
 let lister = { 'points': [ [ 0 , -1 ] , [ 1 , 0 ] ] };
 

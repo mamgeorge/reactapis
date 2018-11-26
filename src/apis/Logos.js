@@ -31,7 +31,7 @@ class Logos extends Component {
 		let words = data.response.search.result.passages.map( ( item ) => item.text ) ;
 		return (
 			<div><center style = {{ padding: "30px" }} >
-				<span dangerouslySetInnerHTML={{__html: words}}></span>
+				<span dangerouslySetInnerHTML={{__html: words}} />
 				<br /></center></div>
 		);
 	}
