@@ -21,33 +21,40 @@ function calcs( lister ) {
 	avgxs = sumxs/Nval ; avgys = sumys/Nval ; 
 	let XVAL = Nval * sumx2s - Math.pow( sumxs , 2.0 ) ;
 	let YVAL = Nval * sumy2s - Math.pow( sumys , 2.0 ) ;
-	let XYVL = Nval * sumxys - ( sumxs * sumxs ) ;
+	let XYVL = Nval * sumxys - ( sumxs * sumys ) ;
 	let SDVX =  Math.pow ( XVAL / ( Nval * ( Nval - 1.0 ) ) , 0.5 );
 	let SDVY =  Math.pow ( YVAL / ( Nval * ( Nval - 1.0 ) ) , 0.5 );
-	let denom = Math.pow ( ( XVAL * YVAL ) , 0.5 );
+	let SXYVL = Math.pow ( ( XVAL * YVAL ) , 0.5 );
 	let slope = XYVL / XVAL ;
 	let intercept = ( sumys - ( slope * sumxs ) ) / Nval ;
-	let corr = XYVL / denom ;
+	let corr = XYVL / SXYVL ;
 	//
-	txtLine += '\n';
+	txtLine += '-------------------\n';
 	txtLine += 'Σx: ' + sumxs + '\t\t Σy : ' + sumys + '\n' ;
 	txtLine += 'Σx²: '+ sumx2s+ '\t\t Σy²: ' + sumy2s+ '\n' ;
 	txtLine += 'αx: ' + avgxs + '\t\t αy : ' + avgys + '\n' ;
+	txtLine += 'n : ' + Nval  + '\t\t Σxy: ' + sumxys + '\n';
 	txtLine += '-------------------\n' ;
 	txtLine += 'XVAL: N*Σx² - (Σx)² \t\t' + XVAL + '\n' ;
 	txtLine += 'YVAL: N*Σy² - (Σy)² \t\t' + YVAL + '\n' ;
 	txtLine += 'XYVL: NΣxy - (Σx*Σy) \t\t' + XYVL + '\n' ;
 	txtLine += 'σX = √[ XVAL / N(N-1) ] \t' + SDVX + '\n' ;
 	txtLine += 'σy = √[ YVAL / N(N-1) ] \t' + SDVY + '\n' ;
-	txtLine += 'DENM: √[ XVAL * YVAL ] \t\t' + denom + '\n' ;
+	txtLine += 'SXYVL: √[ XVAL * YVAL ] \t\t' + SXYVL + '\n' ;
 	txtLine += '-------------------\n' ;
 	txtLine += 'm: XYVL / XVAL: \t\t' + slope + '\t = r*(σy/σX) = ' + ( corr * ( SDVY/SDVX ) ) + '\n' ;
 	txtLine += 'b: [ Σy - (m*Σx) ]/N: \t\t' + intercept + '\n' ;
 	txtLine += '-------------------\n' ;	
 	txtLine += 'r: XYVL / √[XVAL*YVAL ]:\t' + corr + '\n' ;
 	txtLine += 'y = m: ( ' + slope + ' ) x + b: ( ' + intercept + ' )\n' ;
-	//
 	console.log( txtLine ) ; 
-	return corr;
+	//
+	var stats = { 
+		"sums" : { "sumxs": sumxs, "sumys": sumys , "sumx2s": sumx2s , "sumy2s": sumy2s , "avgxs": avgxs , "avgys": avgys , "Nval": Nval , "sumxys": sumxys } ,
+		"calc" : { "XVAL": XVAL, "YVAL": YVAL , "XYVL": XYVL , "SDVX": SDVX , "SDVY": SDVY , "SXYVL": SXYVL } , 		
+		"line" : { "slope": slope, "intercept": intercept , "corr": corr  } , 
+		lister
+	};
+	return stats;
 }
 module.exports = { calcs };
