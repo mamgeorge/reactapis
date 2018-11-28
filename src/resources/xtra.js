@@ -1,19 +1,21 @@
 //
-const REDB = '\033[41m';
-const REDF = '\033[91m';
-const YELF = '\033[93m';
-const CYAN = '\033[96m';
-const GRNB = '\033[42m';
-const GRNF = '\033[92m';
-const BLUF = '\033[34m';
-const PRPL = '\033[95m';
-const GRYF = '\033[90m';
-const GRYB = '\033[100m';
-const WHTB = '\033[107m';
-const BLNK = '\033[0m';
-const DLMT = '██████████' ;
+module.exports.CONSTS = {
+	REDB : '\033[41m' ,
+	REDF : '\033[91m' ,
+	YELF : '\033[93m' ,
+	CYAN : '\033[96m' ,
+	GRNB : '\033[42m' ,
+	GRNF : '\033[92m' ,
+	BLUF : '\033[34m' ,
+	PRPL : '\033[95m' ,
+	GRYF : '\033[90m' ,
+	GRYB : '\033[100m' ,
+	WHTB : '\033[107m' ,
+	BLNK : '\033[0m' ,
+	DLMT : '██████████'
+}
 
-exports.showColors = function( ) {
+module.exports.showColors = function( ) {
 	//
 	var txtLine = '' ; 
 	for( var ictr = 29 ; ictr <= 107 ; ictr++ ) { 
@@ -24,22 +26,22 @@ exports.showColors = function( ) {
 	return txtLine ;
 }
 
-exports.testResults = function( results , expects ) {
+module.exports.testResults = function( results , expects ) {
 	//
 	let txtLine = '' ;
 	if ( results === expects )
-	{ txtLine = GRNF + DLMT + ' PASS! ' + DLMT + BLNK + '\n' ; } else
-	{ txtLine = REDF + DLMT + ' FAIL! ' + DLMT + BLNK
+	{ txtLine = this.CONSTS.GRNF + this.CONSTS.DLMT + ' PASSED! ' + this.CONSTS.DLMT + this.CONSTS.BLNK + '\n' ; } else
+	{ txtLine = this.CONSTS.REDF + this.CONSTS.DLMT + ' FAILED! ' + this.CONSTS.DLMT + this.CONSTS.BLNK
 		 + ' results: ' + results + ' , expects: ' + expects + '\n' ; }
 	return txtLine;
 }
 
-exports.calcRegression = function( lister ) {
+module.exports.calcRegression = function( lister ) {
 	//
 	if (lister === undefined || lister === null || lister.length === 0) {
 		lister = { 'points': [[13, 1], [9, 2], [7, 3], [14, 4], [7, 5], [9, 6], [2, 7]] };
 	};
-	let txtLine = WHTB;
+	let txtLine = this.CONSTS.WHTB;
 	let Nval = lister.points.length;
 	let avgxs = 0 , avgys = 0
 	let sumxs = 0 , sumx2s = 0 , sumys = 0 , sumy2s = 0 , sumxys = 0;
@@ -64,26 +66,25 @@ exports.calcRegression = function( lister ) {
 	let intercept = ( sumys - ( slope * sumxs ) ) / Nval ;
 	let corr = XYVL / SXYVL ;
 	//
-	txtLine += BLNK;
-	txtLine += REDF + '-------------------\n';
+	txtLine += this.CONSTS.BLNK;
+	txtLine += this.CONSTS.REDF + '-------------------\n';
 	txtLine += 'Σx: ' + sumxs + '\t\t Σy : ' + sumys + '\n' ;
 	txtLine += 'Σx²: '+ sumx2s+ '\t\t Σy²: ' + sumy2s+ '\n' ;
 	txtLine += 'αx: ' + avgxs + '\t\t αy : ' + avgys + '\n' ;
-	txtLine += 'n : ' + Nval  + '\t\t Σxy: ' + sumxys + '\n' + BLNK ;
-	txtLine += BLUF + '-------------------\n' ;
+	txtLine += 'n : ' + Nval  + '\t\t Σxy: ' + sumxys + '\n' + this.CONSTS.BLNK ;
+	txtLine += this.CONSTS.BLUF + '-------------------\n' ;
 	txtLine += 'XVAL: N*Σx² - (Σx)² \t\t' + XVAL + '\n' ;
 	txtLine += 'YVAL: N*Σy² - (Σy)² \t\t' + YVAL + '\n' ;
 	txtLine += 'XYVL: NΣxy - (Σx*Σy) \t\t' + XYVL + '\n' ;
 	txtLine += 'σX = √[ XVAL / N(N-1) ] \t' + SDVX + '\n' ;
 	txtLine += 'σy = √[ YVAL / N(N-1) ] \t' + SDVY + '\n' ;
-	txtLine += 'SXYVL: √[ XVAL * YVAL ] \t' + SXYVL + '\n' + BLNK ;
-	txtLine += GRNF + '-------------------\n' ;
+	txtLine += 'SXYVL: √[ XVAL * YVAL ] \t' + SXYVL + '\n' + this.CONSTS.BLNK ;
+	txtLine += this.CONSTS.GRNF + '-------------------\n' ;
 	txtLine += 'm: XYVL / XVAL: \t\t' + slope + '\t = r*(σy/σX) = ' + ( corr * ( SDVY/SDVX ) ) + '\n' ;
-	txtLine += 'b: [ Σy - (m*Σx) ]/N: \t\t' + intercept + '\n' + BLNK ;
-	txtLine += YELF + '-------------------\n' ;	
+	txtLine += 'b: [ Σy - (m*Σx) ]/N: \t\t' + intercept + '\n' + this.CONSTS.BLNK ;
+	txtLine += this.CONSTS.YELF + '-------------------\n' ;	
 	txtLine += 'r: XYVL / √[XVAL*YVAL ]:\t' + corr + '\n' ;
-	txtLine += 'y = m: ( ' + slope + ' ) x + b: ( ' + intercept + ' )\n' + BLNK ;
-	console.log( txtLine ) ; 
+	txtLine += 'y = m: ( ' + slope + ' ) x + b: ( ' + intercept + ' )' + this.CONSTS.BLNK + '\n\n';
 	//
 	var stats = { 
 		"sums" : { "sumxs": sumxs, "sumys": sumys , "sumx2s": sumx2s , "sumy2s": sumy2s , "avgxs": avgxs , "avgys": avgys , "Nval": Nval , "sumxys": sumxys } ,
@@ -91,9 +92,10 @@ exports.calcRegression = function( lister ) {
 		"line" : { "slope": slope, "intercept": intercept , "corr": corr  } , 
 		lister
 	};
-	//	
-	console.log( CYAN + 'stats: ' + JSON.stringify( stats ) + BLNK + '\n' );
-	console.log( PRPL + 'corr: '  + stats.line.corr + BLNK + '\n' );
+	//
+	txtLine += this.CONSTS.CYAN + 'stats: ' + JSON.stringify( stats ) + this.CONSTS.BLNK + '\n\n' ;
+	txtLine += this.CONSTS.PRPL + 'corr: '  + stats.line.corr + this.CONSTS.BLNK + '\n' ;
+	if ( false ) { console.log( txtLine ) ; }
 	//
 	return stats;
 }

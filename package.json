@@ -13,7 +13,10 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test:org": "react-scripts test --env=jsdom",
-		"test": "node tests/sample.js",
+		"test": "mocha tests/sample.js",
 		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"mocha": "^5.2.0"
 	}
 }
