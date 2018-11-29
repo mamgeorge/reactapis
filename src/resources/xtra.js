@@ -26,17 +26,23 @@ module.exports.showColors = function( ) {
 	return txtLine ;
 }
 
+module.exports.showCube = function( intVal ) {
+	let intCube = Math.pow( intVal , 3.0 );
+	console.log( intCube );
+	return intCube ;
+}
 module.exports.testResults = function( results , expects ) {
 	//
 	let txtLine = '' ;
 	if ( results === expects )
-	{ txtLine = this.CONSTS.GRNF + this.CONSTS.DLMT + ' PASSED! ' + this.CONSTS.DLMT + this.CONSTS.BLNK + '\n' ; } else
+	{ txtLine = this.CONSTS.GRNF + this.CONSTS.DLMT + ' PASSED! ' + this.CONSTS.DLMT + this.CONSTS.BLNK 
+		+ ' results: ' + results + '\n' ; } else
 	{ txtLine = this.CONSTS.REDF + this.CONSTS.DLMT + ' FAILED! ' + this.CONSTS.DLMT + this.CONSTS.BLNK
-		 + ' results: ' + results + ' , expects: ' + expects + '\n' ; }
+		+ ' results: ' + results + ' , expects: ' + expects + '\n' ; }
 	return txtLine;
 }
 
-module.exports.calcRegression = function( lister ) {
+module.exports.calcRegression = function( lister , showCalcs ) {
 	//
 	if (lister === undefined || lister === null || lister.length === 0) {
 		lister = { 'points': [[13, 1], [9, 2], [7, 3], [14, 4], [7, 5], [9, 6], [2, 7]] };
@@ -86,16 +92,26 @@ module.exports.calcRegression = function( lister ) {
 	txtLine += 'r: XYVL / √[XVAL*YVAL ]:\t' + corr + '\n' ;
 	txtLine += 'y = m: ( ' + slope + ' ) x + b: ( ' + intercept + ' )' + this.CONSTS.BLNK + '\n\n';
 	//
-	var stats = { 
+	let stats = { 
 		"sums" : { "sumxs": sumxs, "sumys": sumys , "sumx2s": sumx2s , "sumy2s": sumy2s , "avgxs": avgxs , "avgys": avgys , "Nval": Nval , "sumxys": sumxys } ,
-		"calc" : { "XVAL": XVAL, "YVAL": YVAL , "XYVL": XYVL , "SDVX": SDVX , "SDVY": SDVY , "SXYVL": SXYVL } , 		
+		"func" : { "XVAL": XVAL, "YVAL": YVAL , "XYVL": XYVL , "SDVX": SDVX , "SDVY": SDVY , "SXYVL": SXYVL } , 		
 		"line" : { "slope": slope, "intercept": intercept , "corr": corr  } , 
 		lister
 	};
 	//
+	let shwLine = this.CONSTS.PRPL + 'corr: '  + stats.line.corr + this.CONSTS.BLNK + '\n' ;
 	txtLine += this.CONSTS.CYAN + 'stats: ' + JSON.stringify( stats ) + this.CONSTS.BLNK + '\n\n' ;
-	txtLine += this.CONSTS.PRPL + 'corr: '  + stats.line.corr + this.CONSTS.BLNK + '\n' ;
-	if ( false ) { console.log( txtLine ) ; }
+	txtLine += shwLine ;
+	//
+	switch( showCalcs ) {
+		case 1:
+			console.log( shwLine ) ;
+			break;
+		case 2:
+			console.log( txtLine ) ;
+			break;
+		default:
+	}
 	//
 	return stats;
 }
