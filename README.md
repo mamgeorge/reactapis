@@ -11,6 +11,7 @@ This application uses these tools:
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
+- [git updates](#git-updates)
 
 ## Folder Structure
 For the project to build, **these files must exist with exact filenames**:
@@ -27,7 +28,15 @@ Read instructions below for using assets from JavaScript and HTML.
 ## Available Scripts
 
 ### `npm start`
-
 ### `npm test`
-
 ### `npm run build`
+
+## git updates
+
+git branch > 
+	> git checkout develop > git pull origin develop > <changes> > 
+		> git add . > git commit -m "XXXX" > git push origin develop >
+	> git checkout master > git pull origin master > git merge develop 
+		> git add . > git commit -m "xxxx" > git push origin master >
+	> git checkout develop 
+	

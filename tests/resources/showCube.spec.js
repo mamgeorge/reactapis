@@ -1,5 +1,5 @@
 
-const { showCube } = require( '../src/resources/xtra' );
+const { showCube } = require( '../../src/resources/xtra' );
 
 const { assertNew , testRunner } = require( './librarySample' );
 let results , expects;

@@ -1,4 +1,4 @@
-const { parse, stringify } = require('../src/resources/xtra_parseString.js');
+const { parse, stringify } = require('../../src/resources/xtra_parseString.js');
 const assert = require('assert');
 
 describe('testing parseString file!', function () {

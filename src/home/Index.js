@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Index extends Component {
 	render( ) {
 		return (
-			<div style={{ backgroundColor: '#303030' , textAlign: 'left', paddingLeft: "10px" }} > 
+			<div className = "index"> 
 				<br /><a href = '/' >home</a>
 				<br /><a href = '/author' >Author ( inline ) </a>
 				<br /><a href = '/reflect' >Reflect ( class ) </a>

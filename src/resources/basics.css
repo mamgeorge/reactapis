@@ -11,6 +11,8 @@ a, a:hover, a:visited { color: silver; text-decoration: none; }
 
 hr { width: 80%; }
 
+.index { background: #303030; text-align: left; padding-left: 10px; } 
+
 .wht { color: white; }
 .sml { width: 30px; }
 .btn { background: darkslategray; color: white; text-align: center; }
