@@ -33,10 +33,10 @@ Read instructions below for using assets from JavaScript and HTML.
 
 ## git updates
 
-git branch > 
-	> git checkout develop > git pull origin develop > <changes> > 
-		> git add . > git commit -m "XXXX" > git push origin develop >
-	> git checkout master > git pull origin master > git merge develop 
-		> git add . > git commit -m "xxxx" > git push origin master >
-	> git checkout develop 
+git branch > <br>
+	> git checkout develop > git pull origin develop > <changes> > <br>
+		> git add . > git commit -m "XXXX" > git push origin develop ><br>
+	> git checkout master > git pull origin master > git merge develop <br>
+		> git add . > git commit -m "xxxx" > git push origin master > <br>
+	> git checkout develop <br>
 	
