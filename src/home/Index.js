@@ -5,8 +5,9 @@ class Index extends Component {
 		return (
 			<div style={{ backgroundColor: '#303030' , textAlign: 'left', paddingLeft: "10px" }} > 
 				<br /><a href = '/' >home</a>
-				<br /><a href = '/name' >Author ( class ) </a>
-				<br /><a href = '/date' >Dated ( inline ) </a>
+				<br /><a href = '/author' >Author ( inline ) </a>
+				<br /><a href = '/reflect' >Reflect ( class ) </a>
+				<br /><a href = '/controls' >Controls ( RPi ) </a>
 				<br /><br /><hr />
 				<br /><a href = '/users' >Users ( random ) </a>
 				<br /><a href = '/photos' >Photos ( thumbnails )</a>

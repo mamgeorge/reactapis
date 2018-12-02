@@ -37,11 +37,11 @@ class Reflect extends Component {
 	render() {
 		return (
 			<div className = "tbls" >
-				<h3>Martin George</h3>
+				<h3>Reflection</h3>
 				<center><table width = "80%" ><tbody>
-					{this.docReflection( ).reflect.map( ( itm , i ) => 
-						<tr key = { i } >
-							<th>{ i }</th>
+					{this.docReflection( ).reflect.map( ( itm , ictr ) => 
+						<tr key = { ictr } >
+							<th>{ ictr }</th>
 							<th style = {{ textAlign: "left"}}>
 								{ Object.keys( itm ) }</th>
 							<td>{ itm[ Object.keys( itm ) ].toString( ) }</td>
