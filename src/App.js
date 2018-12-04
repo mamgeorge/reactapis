@@ -22,16 +22,20 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<table width='100%'><tbody>
-					<tr>
-						<td colSpan="2" >
-							<Header /></td>
-					</tr>
-					<tr>
-						<td width='20%' style={{ verticalAlign: 'top' }} ><Index /></td>
-						<td style={{ verticalAlign: 'top', height: "400px" }} ><Main /></td>
-					</tr>
-				</tbody></table>
+			<body><div className="all">
+				<div className = "header">
+					<Header />
+					</div>
+				<div className="content">
+					<div className="index" >
+						<Index />
+						</div>
+					<div className="main" >
+						<Main />
+						</div>
+				</div>
+			</div>
+			</body>
 			</Router>
 		);
 	}
@@ -41,23 +45,21 @@ export default App;
 class Main extends Component {
 	render() {
 		return (
-			<div style={{ backgroundColor: '#303030' }} >
-				<Route path='/' exact component={Home} />
-				<Route path='/author' component={ ( ) => 
-					<div className = "tbls" 
-						style = {{ top: "40%" , position: "absolute" , textAlign: "center" , width: "75%" }} >
-					<h3>Martin George</h3>
-					<br /><h5 style={{ color: "green" }}>{ new Date( ).toISOString( ) }</h5>
+			<div>
+				<Route path='/' exact component={ Home } />
+				<Route path='/author' component={ () =>
+					<div className="author"><h3>Martin George</h3>
+						<br /><h5 style={ { color: "green" } }>{ new Date().toISOString() }</h5>
 					</div> } />
-				<Route path='/reflect' component={Reflect} />
-				<Route path='/controls' component={Controls} />
-				<Route path='/users' component={Users} />
-				<Route path='/photos' component={Photos} />
-				<Route path='/hacks' component={Hacks} />
-				<Route path='/apod' component={Apod} />
+				<Route path='/reflect' component={ Reflect } />
+				<Route path='/controls' component={ Controls } />
+				<Route path='/users' component={ Users } />
+				<Route path='/photos' component={ Photos } />
+				<Route path='/hacks' component={ Hacks } />
+				<Route path='/apod' component={ Apod } />
 
-				<Route path='/paged' component={Paged} />
-				<Route path='/word' component={Logos} />
+				<Route path='/paged' component={ Paged } />
+				<Route path='/word' component={ Logos } />
 			</div>
 		);
 	}

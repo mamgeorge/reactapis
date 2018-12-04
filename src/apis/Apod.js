@@ -55,26 +55,22 @@ class Apod extends Component {
 	render() {
 		let { data , dataISS } = this.handleResponses();
 		return ( // JSON.stringify( results )
-			<div className = "tbls" ><center>
-				<table><tbody>
+			<div>
 
-				<tr><td colSpan = "2"><center>
-						<input onChange = { this.handleChange }  type = "text"
-							className = "entr" value = { this.state.dateNew } />&nbsp;
+			<input onChange = { this.handleChange }  type = "text"
+				className = "entr" value = { this.state.dateNew } />&nbsp;
+				ISS: { dataISS.message } / { dataISS.timestamp } 
+				(	{dataISS.iss_position.longitude} , 
+					{dataISS.iss_position.latitude} )
 
-						ISS: { dataISS.message } / { dataISS.timestamp } 
-						(	{dataISS.iss_position.longitude} , 
-							{dataISS.iss_position.latitude} )
-					</center></td></tr>
+			{data.date} / {data.title}
 
-				<tr><td colSpan = "2" ><center>{data.date} / {data.title}</center></td></tr>
+			{data.explanation}
 
-				<tr>
-					<td width = "70%" style = {{ verticalAlign: "top" }}>{data.explanation}</td>
-					<td><center><img style = {{ width: "300px" , verticalAlign: "top" }}
-						src = {data.url} alt="url" /></center></td>
-				</tr>
-			</tbody></table></center></div>
+			<img style = {{ width: "300px" , height: "300px" }}
+				src = {data.url} alt="url" />
+				
+			</div>
 		);
 	}
 }

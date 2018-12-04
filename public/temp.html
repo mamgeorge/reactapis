@@ -1,0 +1,73 @@
+<html><head><title>sample</title>
+
+<style>
+/*
+justify-content: center; 
+align-content: flex-end; 
+align-items: flex-end; 
+*/
+html , body { background: #404040 ; color: white; font-family: verdana; 
+	height: 98%;
+}
+
+h1,h2,h3,h4,h5,h6 { color: #e00000; display: inline; }
+
+a, a:hover, a:visited { color: silver; text-decoration: none; }
+
+hr { width: 80%; }
+
+.all { display: flex; flex-direction: column; height: 100%; 
+}
+.header { background: #303030; padding: 4px; margin: 4px; border-radius: 8px; 
+	flex: 1; max-height: 45px;
+}
+.content { background: #404040; flex: 5;
+	display: flex; flex-direction: row;
+}
+.index { background: #303030; padding: 4px; margin: 4px; border-radius: 8px; 
+	flex: 1; 
+}
+.main { background: #303030; padding: 4px; margin: 4px; border-radius: 8px; 
+	flex: 5; 
+}
+
+.hdr-img { width: 35px; height: 35px; border: 0px; }
+
+.home { margin: auto; } 
+
+.logo { width: 200px; height: 200px; border: 0px; }
+.logo { animation: spinner infinite 20s linear; }
+@keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+</style>
+</head>
+
+<body>
+<div class = "all">
+<div class = "header">
+	<img class = "hdr-img" src = "reactrouter.png" />
+	<h1>MLG Website</h1>
+</div>
+<div class = "content">
+	<div class = "index">
+		<a href = '/' >home</a>
+		<a href = '/author' >Author ( inline ) </a>
+		<a href = '/reflect' >Reflect ( class ) </a>
+		<a href = '/controls' >Controls ( RPi ) </a>
+		<hr />
+		<a href = '/users' >Users ( random ) </a>
+		<a href = '/photos' >Photos ( thumbnails )</a>
+		<a href = '/hacks' >Hacks ( articles ) </a>
+		<a href = '/apod' >Apod ( NASA API ) </a>
+		<hr />
+		<a href = '/paged' >Paged ( pagination ) </a>
+		<a href = '/word' >Logos ( Bible verse )</a>
+		</div>
+	<div class = "main">
+		<img class = "logo home" src = "logo.svg" />	
+	</div>
+</div>
+</div>
+
+</body>
+</html>

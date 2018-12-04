@@ -22,9 +22,9 @@ class Logos extends Component {
 		let { data } =  handleResponse(this, LogosList);
 		let words = data.response.search.result.passages.map( ( item ) => item.text ) ;
 		return (
-			<div><center style = {{ padding: "30px" }} >
+			<div>
 				<span dangerouslySetInnerHTML={{__html: words}} />
-				<br /></center></div>
+				</div>
 		);
 	}
 }

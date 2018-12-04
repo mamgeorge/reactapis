@@ -7,19 +7,27 @@ th , td	{ padding: 0px; white-space: normal; border: white solid 1px; border-rad
 	font-size: 8pt; vertical-align: top; }
 h1,h2,h3,h4,h5,h6 { color: #8080f0; display: inline; }
 a, a:hover, a:visited { color: blue; text-decoration: none; }
-button { width: 50px; height: 50px; background: #000080 ; color: #ffffff; }
 input { background: #303030 ; color: #ffffff; }
 img { background: #303030; width: 150px; height: 135px; }
 hr { width: 80%; }
-.grn { background: #008000 ; }
-.gry { background: #606060 ; }
+
+.blu { width: 50px; height: 50px; background: #000080 ; color: #ffffff; }
+.grn { width: 50px; height: 50px; background: #008000 ; color: #ffffff; }
+.gry { width: 50px; height: 50px; background: #606060 ; color: #ffffff; }
 </style>
+<script>
+function handleBtn( event ) {
+	//
+	var valBtn = event.value;	
+	document.getElementById( 'inputWord' ).value = valBtn ;
+}
+</script>
 </head>
 
 <body><h3 onClick = "location.href = '/controls';">Controls</h3>
 
 <br />
-<table style = "width: 330px;">
+<table style = "width: 340px;">
 <tr>
 	<th style = "width: 50%;" >modular:
 		cam vox read trans light fire</th>
@@ -30,15 +38,27 @@ hr { width: 80%; }
 
 <tr><td style = "text-align: center; margin: auto;">
 		<img style = "border: solid white 1px;" src = "reactrouter.png" />
-		<input type = "text" value = "" style = "width: 100px;" />
-		<input type = "submit" value = "0" style = "width: 25px;" />
-		<input type = "submit" value = "1" style = "width: 25px;" />
+		<input id = "inputWord" type = "text" value = "" style = "width: 100px;" />
+		<input onClick = "handleBtn(this);" type = "submit" value = "0" style = "width: 25px;" />
+		<input onClick = "handleBtn(this);" type = "submit" value = "1" style = "width: 25px;" />
 		</td>
 
 	<td><table>
-		<tr><td><button class = "grn" >1</button><button class = "grn" >2</button><button class = "grn" >3</button></td></tr>
-		<tr><td><button class = "grn" >4</button><button class = "grn" >5</button><button class = "grn" >6</button></td></tr>
-		<tr><td><button class = "grn" >7</button><button class = "grn" >8</button><button class = "grn" >9</button></td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "1" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "2" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "3" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "4" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "5" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "6" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "7" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "8" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "grn" value = "9" />
+			</td></tr>
 		</table></td>
 	</tr>
 
@@ -51,16 +71,38 @@ hr { width: 80%; }
 	</tr>
 
 <tr><td><table>
-		<tr><td><button class = "gry" >1</button><button class = "gry" >2</button><button class = "gry" >3</button></td></tr>
-		<tr><td><button class = "gry" >4</button><button class = "gry" >5</button><button class = "gry" >6</button></td></tr>
-		<tr><td><button class = "gry" >7</button><button class = "gry" >8</button><button class = "gry" >9</button></td></tr>
-		</table></td>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "1" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "2" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "3" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "4" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "5" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "6" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "7" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "8" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "gry" value = "9" />
+			</td></tr>		</table></td>
 
 	<td><table>
-		<tr><td><button>1</button><button>2</button><button>3</button></td></tr>
-		<tr><td><button>4</button><button>5</button><button>6</button></td></tr>
-		<tr><td><button>7</button><button>8</button><button>9</button></td></tr>
-		</table></td>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "1" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "2" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "3" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "4" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "5" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "6" />
+			</td></tr>
+		<tr><td>
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "7" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "8" />
+			<input type = "submit" onClick = "handleBtn(this);" class = "blu" value = "9" />
+			</td></tr>		</table></td>
 	</tr>
 </table>
 </body>

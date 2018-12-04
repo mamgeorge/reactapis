@@ -34,8 +34,8 @@ Read instructions below for using assets from JavaScript and HTML.
 ## git updates
 
 git branch > <br>
-	git pull origin develop > git checkout develop > <changes> > <br>
-		> git add . > git commit -m "XXXX" > git push origin develop ><br>
+	> git pull origin develop > git checkout develop > changes > <br>
+		> git add . > git commit -m "xxxx" > git push origin develop ><br>
 	> git pull origin master > git checkout master > git merge develop <br>
 		> git add . > git commit -m "xxxx" > git push origin master > <br>
 	> git checkout develop <br>

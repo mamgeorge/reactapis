@@ -1,9 +1,9 @@
-
-body { background: #404040 ; color: white; font-family: verdana;  margin: auto ; text-align: center; }
-
-table , img { border-radius: 8px; }
-
-th , td { padding: 8px; border: gray solid 1px; border-radius: 8px; }
+html { height: 98%; }
+body { background: #404040 ; color: white; font-family: verdana; 
+	height: 100%; margin: 0px; padding: 0px; 
+	margin-top: 4px; margin-left: 2px; margin-right: 2px;
+	}
+	#root { height: 100%; }
 
 h1,h2,h3,h4,h5,h6 { color: #e00000; display: inline; }
 
@@ -11,13 +11,32 @@ a, a:hover, a:visited { color: silver; text-decoration: none; }
 
 hr { width: 80%; }
 
-.index { background: #303030; text-align: left; padding-left: 10px; } 
+.all { display: flex; flex-direction: column; height: 100%; 
+}
+.header { background: #303030;
+	padding: 4px; margin: 4px; border-radius: 8px; 
+	max-height: 45px; 
+}
+.headerRow { display: flex; flex-direction: row; }
+.headerRow img { justify-content: flex-start; }
+.headerRow b { justify-content: center; 
+	color: #e00000; font-size: 200%;
+	flex: 1; }
 
-.wht { color: white; }
-.sml { width: 30px; }
-.btn { background: darkslategray; color: white; text-align: center; }
-.tbls { height: 450px; overflow: auto; } 
-.logo { animation: spinner infinite 20s linear; width: 40px; }
-.entr { background: #404040; color: white; text-align: center; }
+.content { background: #404040; flex: 5;
+	display: flex; flex-direction: row;
+}
+.index { background: #303030; padding: 8px; margin: 4px; border-radius: 8px; 
+	flex: 1; min-width: 200px; 
+}
+.index a { display: block; }
+.main { background: #303030; padding: 4px; margin: 4px; border-radius: 8px; 
+	flex: 5; display: flex; flex-direction: column;
+	justify-content: center; align-items: center;
+}
 
+.logo { width: 35px; height: 35px; border: 0px; }
+
+.homer { width: 300px; height: 300px; }
+.twister { animation: spinner infinite 20s linear; }
 @keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
