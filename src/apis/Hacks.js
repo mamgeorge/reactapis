@@ -22,21 +22,29 @@ class Hacks extends Component {
 	render() {
 		let { data } = handleResponse( this, HacksList );
 		return ( // JSON.stringify( results )
-			<div className="tbls" ><center>
-				<b>Returning hits for: <input onChange = { this.handleChange } 
+			<div>
+				<h3 className="hacks" >Returning hits for: <input onChange = { this.handleChange } 
 					className = "entr" type = "text" value = { this.state.query } /> !
-					</b>
-				<table><tbody>
-				<tr><th>author</th><th>title</th><th>points</th></tr>
+					</h3>
+				<div className="hacksGroup" >
+				<div className="hacksRow" >
+					<div className="hacksNum" >#</div>
+					<div className="hacksAth" >author</div>
+					<div className="hacksTtl" >title</div>
+					<div className="hacksPnt" >points</div>
+					</div>
 				{
-					data.hits.map((item) =>
-						<tr key={item.created_at} >
-							<td><a href = {item.url} target = {"_blank"} >{item.author}</a></td>
-							<td><a href = {item.url} target = {"_blank"} >{item.title}</a></td>
-							<td title = {item.points}>{item.created_at.substring(0,10)}</td>
-						</tr>)
+					data.hits.map( ( item , index ) =>
+						<div className="hacksRow" key={item.created_at} >
+							<div className="hacksNum" >{index+1}</div>
+							<div className="hacksAth" ><a href = {item.url} target = {"_blank"} >{item.author}</a></div>
+							<div className="hacksTtl" ><a href = {item.url} target = {"_blank"} >{item.title}</a></div>
+							<div className="hacksPnt" title = {item.points}>
+								{item.created_at.substring(0,10)}
+								</div>
+						</div>)
 				}
-			</tbody></table></center></div>
+			</div></div>
 		);
 	}
 }

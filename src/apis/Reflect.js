@@ -36,18 +36,19 @@ class Reflect extends Component {
 
 	render() {
 		return (
-			<div className = "tbls" >
-				<h3>Reflection</h3>
-				<center><table width = "80%" ><tbody>
+			<div>
+				<h3 className = "reflect">Reflection</h3>
+				<div className = "reflectGroup">
 					{this.docReflection( ).reflect.map( ( itm , ictr ) => 
-						<tr key = { ictr } >
-							<th>{ ictr }</th>
-							<th style = {{ textAlign: "left"}}>
-								{ Object.keys( itm ) }</th>
-							<td>{ itm[ Object.keys( itm ) ].toString( ) }</td>
-						</tr>
+						<div className = "reflectRow">
+						<div className = "reflectNum" key = { ictr } >{ ictr+1 }</div>
+						<div className = "reflectKey">{ Object.keys( itm ) }</div>
+						<div className = "reflectDat">
+							{ itm[ Object.keys( itm ) ].toString( ) }
+							</div>
+						</div>
 					)}
-				</tbody></table></center>
+				</div>	
 			</div>
 		);
 	}

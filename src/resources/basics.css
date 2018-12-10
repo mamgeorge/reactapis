@@ -30,13 +30,48 @@ hr { width: 80%; }
 	flex: 1; min-width: 200px; 
 }
 .index a { display: block; }
+
 .main { background: #303030; padding: 4px; margin: 4px; border-radius: 8px; 
 	flex: 5; display: flex; flex-direction: column;
 	justify-content: center; align-items: center;
 }
 
-.logo { width: 35px; height: 35px; border: 0px; }
+.author { text-align: center; }
 
+.reflectGroup , .usersGroup , .photosGroup , .hacksGroup , .apodGroup , .pagedGroup
+{ height: 450px; width: 850px; overflow: auto; }
+
+.reflect , .users , .photos , .hacks , .apod , .paged
+{ display: flex; flex-direction: row; 
+	justify-content: center; align-items: center; }
+
+.reflectRow , .usersRow , .photosRow , .hacksRow , .apodRow
+{ display: flex; flex-direction: row; }
+
+.reflectNum { flex: 1; }
+.reflectKey { flex: 2; }
+.reflectDat { flex: 12; }
+
+.usersNum { flex: 1; }
+.usersEml { flex: 3; justify-content: flex-start; }
+.usersFst { flex: 1; }
+.usersLst { flex: 1; }
+
+.photosIds { flex: 1; }
+.photosTtl { flex: 5; }
+.photosUrl { flex: 1; }
+.photosThm { flex: 1; }
+
+.hacksNum { flex: 1; }
+.hacksAth { flex: 1; }
+.hacksTtl { flex: 5; }
+.hacksPnt { flex: 1; }
+
+.apodTxt { flex: 2; }
+.apodImg { flex: 1; }
+
+.logo { width: 35px; height: 35px; border: 0px; }
 .homer { width: 300px; height: 300px; }
+.smlimg { width: 25px; height: 25px; }
 .twister { animation: spinner infinite 20s linear; }
 @keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

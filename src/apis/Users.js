@@ -6,26 +6,33 @@ const LINK_USER = 'https://randomuser.me/api/?results=';
 
 class Users extends Component {
 
-	constructor(props) { super(props); this.state = { data: [], limit: 40 }; }
+	constructor ( props ) { super( props ); this.state = { data: [], limit: 40 }; }
 
-	componentDidMount() { loadJson(this, LINK_USER + this.state.limit); }
+	componentDidMount() { loadJson( this, LINK_USER + this.state.limit ); }
 
 	render() {
-		let { data } = handleResponse(this, UsersList);
+		let { data } = handleResponse( this, UsersList );
 		return ( // JSON.stringify( results )
-			<div className="tbls" ><center>
-				<b>Limiting users to: { this.state.limit }!</b>
-				<table><tbody>
-				<tr><th>email</th><th>first</th><th>last</th></tr>
+			<div>
+				<h3 className = "users">Limiting users to: { this.state.limit }!</h3>
+				<div className = "usersGroup" >
+				<div className = "usersRow">
+					<div className = "usersNum">#</div>
+					<div className = "usersEml">email</div>
+					<div className = "usersFst">first</div>
+					<div className = "usersLst">last</div>
+				</div>
 				{
-					data.results.map((item) =>
-						<tr key={item.email} >
-							<td>{item.email}</td>
-							<td>{item.name.first}</td>
-							<td>{item.name.last}</td>
-						</tr>)
+					data.results.map( ( item , index ) =>
+						<div className = "usersRow" key={ item.email } >
+							<div className = "usersNum">{ index+1 }</div>
+							<div className = "usersEml">{ item.email }</div>
+							<div className = "usersFst">{ item.name.first }</div>
+							<div className = "usersLst">{ item.name.last }</div>
+						</div> )
 				}
-			</tbody></table></center></div>
+				</div>
+			</div>
 		);
 	}
 }

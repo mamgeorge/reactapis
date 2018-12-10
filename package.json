@@ -13,10 +13,11 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test:org": "react-scripts test --env=jsdom",
-		"test": "mocha tests/**/**.spec.js",
+		"test": "nyc mocha tests/**/**.spec.js",
 		"eject": "react-scripts eject"
 	},
 	"devDependencies": {
-		"mocha": "^5.2.0"
+		"mocha": "^5.2.0",
+		"nyc": "^13.1.0"
 	}
 }

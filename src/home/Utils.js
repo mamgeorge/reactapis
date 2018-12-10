@@ -23,7 +23,6 @@ export function loadApiNoCors( component, url ) {
 		.catch( error => console.log( error ) );
 }
 
-
 // CORS ( Cross-Origin Resource Sharing )
 // CORB ( Cross-Origin Read Blocking )
 export function loadXhr( component, url ) {
