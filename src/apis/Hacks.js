@@ -23,11 +23,11 @@ class Hacks extends Component {
 		let { data } = handleResponse( this, HacksList );
 		return ( // JSON.stringify( results )
 			<div>
-				<h3 className="hacks" >Returning hits for: <input onChange = { this.handleChange } 
+				<h3 className="basics" >Hacks returned:&nbsp;<input onChange = { this.handleChange } 
 					className = "entr" type = "text" value = { this.state.query } /> !
 					</h3>
-				<div className="hacksGroup" >
-				<div className="hacksRow" >
+				<div className="basicsGroup" >
+				<div className="basicsRow" >
 					<div className="hacksNum" >#</div>
 					<div className="hacksAth" >author</div>
 					<div className="hacksTtl" >title</div>
@@ -35,7 +35,7 @@ class Hacks extends Component {
 					</div>
 				{
 					data.hits.map( ( item , index ) =>
-						<div className="hacksRow" key={item.created_at} >
+						<div className="basicsRow" key={item.created_at} >
 							<div className="hacksNum" >{index+1}</div>
 							<div className="hacksAth" ><a href = {item.url} target = {"_blank"} >{item.author}</a></div>
 							<div className="hacksTtl" ><a href = {item.url} target = {"_blank"} >{item.title}</a></div>

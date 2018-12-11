@@ -14,9 +14,9 @@ class Users extends Component {
 		let { data } = handleResponse( this, UsersList );
 		return ( // JSON.stringify( results )
 			<div>
-				<h3 className = "users">Limiting users to: { this.state.limit }!</h3>
-				<div className = "usersGroup" >
-				<div className = "usersRow">
+				<h3 className = "basics">Users limited to: { this.state.limit }!</h3>
+				<div className = "basicsGroup" >
+				<div className = "basicsRow usersRow">
 					<div className = "usersNum">#</div>
 					<div className = "usersEml">email</div>
 					<div className = "usersFst">first</div>
@@ -24,7 +24,7 @@ class Users extends Component {
 				</div>
 				{
 					data.results.map( ( item , index ) =>
-						<div className = "usersRow" key={ item.email } >
+						<div className = "basicsRow usersRow" key={ item.email } >
 							<div className = "usersNum">{ index+1 }</div>
 							<div className = "usersEml">{ item.email }</div>
 							<div className = "usersFst">{ item.name.first }</div>

@@ -38,24 +38,25 @@ hr { width: 80%; }
 
 .author { text-align: center; }
 
-.reflectGroup , .usersGroup , .photosGroup , .hacksGroup , .apodGroup , .pagedGroup
-{ height: 450px; width: 850px; overflow: auto; }
+.basicsGroup
+{ height: 450px; overflow: auto; }
 
-.reflect , .users , .photos , .hacks , .apod , .paged
+.basics
 { display: flex; flex-direction: row; 
 	justify-content: center; align-items: center; }
 
-.reflectRow , .usersRow , .photosRow , .hacksRow , .apodRow
+.basicsRow
 { display: flex; flex-direction: row; }
 
 .reflectNum { flex: 1; }
 .reflectKey { flex: 2; }
 .reflectDat { flex: 12; }
 
-.usersNum { flex: 1; }
-.usersEml { flex: 3; justify-content: flex-start; }
-.usersFst { flex: 1; }
-.usersLst { flex: 1; }
+.usersRow { width: 850px; }
+.usersNum { width: 10%; }
+.usersEml { width: 60%; }
+.usersFst { width: 15%; }
+.usersLst { width: 15%; white-space: nowrap; padding-right: 20px; }
 
 .photosIds { flex: 1; }
 .photosTtl { flex: 5; }
@@ -64,11 +65,23 @@ hr { width: 80%; }
 
 .hacksNum { flex: 1; }
 .hacksAth { flex: 1; }
-.hacksTtl { flex: 5; }
-.hacksPnt { flex: 1; }
+.hacksTtl { flex: 7; }
+.hacksPnt { flex: 1 nowrap; }
 
 .apodTxt { flex: 2; }
 .apodImg { flex: 1; }
+
+.taxonsRow { width: 850px; font-size: 8pt; }
+.taxons1 { width: 14%; }
+.taxons2 { width: 14%; }
+.taxons3 { width: 14%; }
+.taxons4 { width: 14%; }
+.taxons5 { width: 14%; }
+.taxons6 { width: 14%; }
+.taxons7 { width: 14%; }
+ 
+.archsRow { width: 850px; }
+.archsCell { width: 30%; white-space: nowrap; }
 
 .logo { width: 35px; height: 35px; border: 0px; }
 .homer { width: 300px; height: 300px; }

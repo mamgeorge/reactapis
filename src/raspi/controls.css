@@ -1,0 +1,4 @@
+.controlsRow
+{ display: flex; flex-direction: row; }
+
+.controlsNum { flex: 1; }

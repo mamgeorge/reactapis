@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { loadJson, loadApi } from '../home/Utils';
 import { dateTimeFormat } from './../resources/basics.js'
-import ApodList from './../resources/apod.json'
+import ApodList from './../resources/apods.json'
 import ISSList from './../resources/iss.json'
 
 const LINK_APOD = 'https://api.nasa.gov/planetary/apod?date=';
 const NASA_API_KEY = '&api_key=Oo7FtQjALw01loIt8b7nD5aqA1sIb44LSqSjQS9w';
 const LINK_ISS = 'http://api.open-notify.org/iss-now.json';
 
-class Apod extends Component {
+class Apods extends Component {
 
 	constructor ( props ) {
 		super( props );
@@ -61,11 +61,11 @@ class Apod extends Component {
 				(	{ dataISS.iss_position.longitude } ,
 					{ dataISS.iss_position.latitude } )
 
-			<br /><br /><div className = "apodGroup">
+			<br /><br /><div className = "basicsGroup">
 				<input onChange={ this.handleChange } type="text"
 					className="entr" value={ this.state.dateNew } />
 				&nbsp;&nbsp;<h3>{ data.date } / { data.title }</h3>
-				<div className = "apodRow">
+				<div className = "basicsRow">
 					<div className = "apodTxt">{ data.explanation }</div>
 					<div className = "apodImg"><img style={ { width: "300px", height: "300px" } }
 						src={ data.url } alt="url" /></div>
@@ -75,4 +75,4 @@ class Apod extends Component {
 		);
 	}
 }
-export default Apod;
+export default Apods;

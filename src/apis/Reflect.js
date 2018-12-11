@@ -37,11 +37,11 @@ class Reflect extends Component {
 	render() {
 		return (
 			<div>
-				<h3 className = "reflect">Reflection</h3>
-				<div className = "reflectGroup">
+				<h3 className = "basics">Reflecting Browser Configuration</h3>
+				<div className = "basicsGroup">
 					{this.docReflection( ).reflect.map( ( itm , ictr ) => 
-						<div className = "reflectRow">
-						<div className = "reflectNum" key = { ictr } >{ ictr+1 }</div>
+						<div className = "basicsRow" key = { ictr } >
+						<div className = "reflectNum">{ ictr+1 }</div>
 						<div className = "reflectKey">{ Object.keys( itm ) }</div>
 						<div className = "reflectDat">
 							{ itm[ Object.keys( itm ) ].toString( ) }

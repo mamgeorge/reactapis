@@ -14,9 +14,9 @@ class Photos extends Component {
 		let { data } = handleResponse( this, PhotosList );
 		return ( // JSON.stringify( data )
 			<div>
-				<h3 className="photos">Limiting photos to: { this.state.limit }!</h3>
-				<div className="photosGroup" >
-					<div className="photosRow">
+				<h3 className="basics">Photos limited to: { this.state.limit }!</h3>
+				<div className="basicsGroup" >
+					<div className="basicsRow">
 						<div className="photosIds">id</div>
 						<div className="photosTtl">title</div>
 						<div className="photosUrl">url</div>
@@ -24,7 +24,7 @@ class Photos extends Component {
 					</div>
 					{
 						data.slice( 0, this.state.limit ).map( ( item ) =>
-							<div className="photosRow" key={ item.id } >
+							<div className="basicsRow" key={ item.id } >
 								<div className="photosIds">{ item.id }</div>
 								<div className="photosTtl">{ item.title }</div>
 								<div className="photosUrl">

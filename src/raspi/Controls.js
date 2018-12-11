@@ -4,54 +4,45 @@ import './controls.css';
 
 class Controls extends Component {
 
+	changeWords(){}
+
 	render() {
 		return (
-			<body><h3 onClick = { ( ( ) => { window.location.href='/Controls.html';} ) } >controls</h3><br />
-				<table>
-					<tr>
-						<th>modular:
-							cam vox read trans light fire</th>
+			<div>
+				<h3 className = "basics" onClick = { ( ( ) => { window.location.href='/Controls.html';} ) } >Controls</h3>
+				<div className = "basicsGroup">
+				<br />modular: cam vox read trans light fire
+				<br />articulate: (grasp release) push pull rotate extend bend twist
 
-						<th>articulate: (grasp release)
-							push pull rotate extend bend twist</th>
-					</tr>
+				<br />
+				<br /><img style = {{ width: "100px" }} src = {reactPng} alt = "reactPng" />
+				<br /><input type="text" onChange = { this.changeWords } value="" />
+					<input type="submit" value="0" />
+					<input type="submit" value="1" />
 
-					<tr><td>
-						<img style = {{ width: "100px" }} src = {reactPng} alt = "reactPng" />
-						<input type="text" value="" />
-						<input type="submit" value="0" />
-						<input type="submit" value="1" />
-					</td>
+				<br /><table><tbody>
+					<tr><td><button className="grn" >1</button><button className="grn" >2</button><button className="grn" >3</button></td></tr>
+					<tr><td><button className="grn" >4</button><button className="grn" >5</button><button className="grn" >6</button></td></tr>
+					<tr><td><button className="grn" >7</button><button className="grn" >8</button><button className="grn" >9</button></td></tr>
+					</tbody></table>
+			
+				<br />
+				<br />rotational: (up down) twistl twistr bendd bendu archl archr
+				<br />traversals: (go stop) front back left right fast slow
+				
+				<br /><table><tbody>
+					<tr><td><button className="gry" >1</button><button className="gry" >2</button><button className="gry" >3</button></td></tr>
+					<tr><td><button className="gry" >4</button><button className="gry" >5</button><button className="gry" >6</button></td></tr>
+					<tr><td><button className="gry" >7</button><button className="gry" >8</button><button className="gry" >9</button></td></tr>
+					</tbody></table>
 
-						<td><table>
-							<tr><td><button class="grn" >1</button><button class="grn" >2</button><button class="grn" >3</button></td></tr>
-							<tr><td><button class="grn" >4</button><button class="grn" >5</button><button class="grn" >6</button></td></tr>
-							<tr><td><button class="grn" >7</button><button class="grn" >8</button><button class="grn" >9</button></td></tr>
-						</table></td>
-					</tr>
-
-					<tr>
-						<th>rotational: (up down)
-							twistl twistr bendd bendu archl archr</th>
-
-						<th>traversals: (go stop)
-							front back left right fast slow</th>
-					</tr>
-
-					<tr><td><table>
-						<tr><td><button class="gry" >1</button><button class="gry" >2</button><button class="gry" >3</button></td></tr>
-						<tr><td><button class="gry" >4</button><button class="gry" >5</button><button class="gry" >6</button></td></tr>
-						<tr><td><button class="gry" >7</button><button class="gry" >8</button><button class="gry" >9</button></td></tr>
-					</table></td>
-
-						<td><table>
-							<tr><td><button>1</button><button>2</button><button>3</button></td></tr>
-							<tr><td><button>4</button><button>5</button><button>6</button></td></tr>
-							<tr><td><button>7</button><button>8</button><button>9</button></td></tr>
-						</table></td>
-					</tr>
-				</table>
-			</body>
+				<br /><table><tbody>
+					<tr><td><button>1</button><button>2</button><button>3</button></td></tr>
+					<tr><td><button>4</button><button>5</button><button>6</button></td></tr>
+					<tr><td><button>7</button><button>8</button><button>9</button></td></tr>
+					</tbody></table>
+				</div>
+			</div>
 		);
 	}
 }

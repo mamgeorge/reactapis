@@ -7,12 +7,15 @@ import Index from './home/Index';
 import Home from './home/Home';
 //
 import Reflect from './apis/Reflect';
-import Controls from './raspi/Controls';
 import Users from './apis/Users';
 import Photos from './apis/Photos';
-import Hacks from './apis/Hacks';
-import Apod from './apis/Apod';
 import Paged from './apis/Paged';
+import Hacks from './apis/Hacks';
+import Apods from './apis/Apods';
+import Taxons from './apis/Taxons';
+import Archs from './apis/Archs';
+
+import Controls from './raspi/Controls';
 import Logos from './apis/Logos';
 
 // const Home = ( ) => <h1>Greetings</h1>;
@@ -22,7 +25,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-			<body><div className="all">
+			<div className="all">
 				<div className = "header">
 					<Header />
 					</div>
@@ -35,7 +38,6 @@ class App extends Component {
 						</div>
 				</div>
 			</div>
-			</body>
 			</Router>
 		);
 	}
@@ -48,18 +50,21 @@ class Main extends Component {
 			<div>
 				<Route path='/' exact component={ Home } />
 				<Route path='/author' component={ () =>
-					<div className="author"><h3>Martin George</h3>
-						<br /><h5 style={ { color: "green" } }>{ new Date().toISOString() }</h5>
+					<div className="author"><h3>Author: Martin George</h3>
+						<br />dateTime: <h5 style={ { color: "green" } }>{ new Date().toISOString() }</h5>
 					</div> } />
 				<Route path='/reflect' component={ Reflect } />
-				<Route path='/controls' component={ Controls } />
+
 				<Route path='/users' component={ Users } />
 				<Route path='/photos' component={ Photos } />
-				<Route path='/hacks' component={ Hacks } />
-				<Route path='/apod' component={ Apod } />
-
 				<Route path='/paged' component={ Paged } />
-				<Route path='/word' component={ Logos } />
+				<Route path='/hacks' component={ Hacks } />
+				<Route path='/apods' component={ Apods } />
+
+				<Route path='/archs' component={ Archs } />
+				<Route path='/taxons' component={ Taxons } />
+				<Route path='/controls' component={ Controls } />
+				<Route path='/logos' component={ Logos } />
 			</div>
 		);
 	}

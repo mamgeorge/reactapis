@@ -39,19 +39,19 @@ class Paged extends Component {
 		let { data } = handleResponse( this, PhotosList );
 		return ( // JSON.stringify( data )
 			<div>
-				<h3 className="paged">Limiting range to: { offsets }!</h3>
-				<div className="pagedGroup" >{
+				<h3 className="basics">Paged range is: { offsets }!</h3>
+				<div className="basicsGroup" >{
 					data.slice( starter, starter + offsets ).map( ( item, index ) =>
-						<span className="pagedRow" key={ item.id } >
+						<span className="" key={ item.id } >
 							<span className="pagedIds" >{ this.parseNumber( item.id ) }</span>&nbsp;
-								<span className="pagedImg" ><img className="smlimg" src={ item.url } alt="url" /></span>
+							<span className="pagedImg" ><img className="smlimg" src={ item.url } alt="url" /></span>
 							<span className="pagedImg" ><img className="smlimg" src={ item.thumbnailUrl } alt="thm" /></span>
 							{ this.handleBreak( index ) }
 						</span>
 					)
 				}
 				</div>
-				<div className="paged">
+				<div className="basics">
 					<input onClick={ () => this.handlePage( -10 ) } className="btn" defaultValue="<<" />
 					<input onClick={ () => this.handlePage( 10 ) } className="btn" defaultValue=">>" />
 				</div>
