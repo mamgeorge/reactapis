@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { loadJson, handleResponse } from '../home/Utils';
-import TaxonsList from './../resources/taxons.json'
+import TaxonsList from './../resources/samples/taxons.json'
 
 const LINK_TAXONS = 'http://api.gbif.org/v1';
 const LINK_OCC_PARMS = '/occurrence/search?year=1800,1899';

@@ -2,23 +2,23 @@
 // http://awmc.unc.edu/wordpress/api-documentation/
 
 import React, { Component } from 'react';
-import { loadJson, handleResponse } from '../home/Utils';
-import ArchsList from './../resources/archs.json'
+import { loadJsonNoCors, handleResponse } from '../home/Utils';
+import ArchsList from './../resources/samples/archs.json'
 
 const LINK_ARCHS = 'http://awmc.unc.edu/api/omnia/';
 const LINK_SFFX = '168940/json';
 
 class Archs extends Component {
 
-	constructor ( props ) { super( props ); this.state = { data: [], }; }
+	constructor ( props ) { super( props ); this.state = { data: [] , classy: 'grayish' }; }
 
-	componentDidMount() { loadJson( this, LINK_ARCHS + LINK_SFFX ); }
+	componentDidMount() { loadJsonNoCors( this, LINK_ARCHS + LINK_SFFX ); }
 
 	render() {
-		let { data } = handleResponse( this, ArchsList );
+		let { data , classy } = handleResponse( this, ArchsList );
 		return ( // JSON.stringify( results )
 			<div>
-				<h3 className="basics" >Archs</h3>
+				<h3 className={ 'basics ' + classy } >Archs</h3>
 				<div className = "basicsGroup" >
 				<div className = "basicsRow archsRow" >
 					<div className = "archsCell" >{ data.features[0].properties.awmc_id }</div>

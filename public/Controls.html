@@ -14,6 +14,10 @@ hr { width: 80%; }
 .blu { width: 50px; height: 50px; background: #000080 ; color: #ffffff; }
 .grn { width: 50px; height: 50px; background: #008000 ; color: #ffffff; }
 .gry { width: 50px; height: 50px; background: #606060 ; color: #ffffff; }
+.logo { width: 80px; height: 80px; }
+.twister { animation: spinner infinite 20s linear; }
+@keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
 </style>
 <script>
 function handleBtn( event ) {
@@ -36,11 +40,16 @@ function handleBtn( event ) {
 		push pull rotate extend bend twist</th>
 	</tr>
 
-<tr><td style = "text-align: center; margin: auto;">
-		<img style = "border: solid white 1px;" src = "reactrouter.png" />
-		<input id = "inputWord" type = "text" value = "" style = "width: 100px;" />
-		<input onClick = "handleBtn(this);" type = "submit" value = "0" style = "width: 25px;" />
-		<input onClick = "handleBtn(this);" type = "submit" value = "1" style = "width: 25px;" />
+<tr><td style = "text-align: center; margin: auto; background: #303030;">
+		<table style = "background: transparent;">
+		<tr><td style = "height: 135px; text-align: center; ">
+			<div style = "height: 30px;" ></div>
+			<img class = "twister logo" src = "rotate_bubble.gif" /></td></tr>
+		<tr><td><input id = "inputWord" type = "text" value = "" style = "width: 100px;" />
+			<input onClick = "handleBtn(this);" type = "submit" value = "0" style = "width: 25px;" />
+			<input onClick = "handleBtn(this);" type = "submit" value = "1" style = "width: 25px;" />
+			</td></tr>	
+		</table>
 		</td>
 
 	<td><table>

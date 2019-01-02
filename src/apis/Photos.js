@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { loadJson, handleResponse } from '../home/Utils';
-import PhotosList from './../resources/photos.json'
+import PhotosList from './../resources/samples/photos.json'
 
 const LINK_PHOTOS = 'https://jsonplaceholder.typicode.com/photos';
 
 class Photos extends Component {
 
-	constructor ( props ) { super( props ); this.state = { data: [], limit: 40 }; }
+	constructor ( props ) { super( props ); this.state = { data: [], limit: 40 , classy: 'grayish' }; }
 
 	componentDidMount() { loadJson( this, LINK_PHOTOS + '' ); }
 
 	render() {
-		let { data } = handleResponse( this, PhotosList );
+		let { data , classy } = handleResponse( this, PhotosList );
 		return ( // JSON.stringify( data )
 			<div>
-				<h3 className="basics">Photos limited to: { this.state.limit }!</h3>
+				<h3 className={ 'basics ' + classy }>Photos limited to: { this.state.limit }!</h3>
 				<div className="basicsGroup" >
 					<div className="basicsRow">
 						<div className="photosIds">id</div>

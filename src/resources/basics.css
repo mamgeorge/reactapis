@@ -83,8 +83,12 @@ hr { width: 80%; }
 .archsRow { width: 850px; }
 .archsCell { width: 30%; white-space: nowrap; }
 
+.grayish { /**/ color: gray; }
+
 .logo { width: 35px; height: 35px; border: 0px; }
 .homer { width: 300px; height: 300px; }
 .smlimg { width: 25px; height: 25px; }
 .twister { animation: spinner infinite 20s linear; }
 @keyframes spinner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.twisted { animation: spinned infinite 20s linear; }
+@keyframes spinned { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }

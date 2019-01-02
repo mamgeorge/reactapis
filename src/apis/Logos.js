@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadXhr , handleResponse } from '../home/Utils';
-import LogosList from './../resources/logos.json'
+import LogosList from './../resources/samples/logos.json'
 
 // https://scripture.api.bible/
 // "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/LUK.1.1?content-type=json&include-notes=false&include-titles=false&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false"

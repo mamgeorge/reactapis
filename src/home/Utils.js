@@ -1,25 +1,27 @@
 // https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
-export function loadApi( component, url ) {
-	fetch( url )
-		.then( response => response.json() )
-		.then( dataISS => { component.setState( { dataISS } ) } )
-		.catch( error => console.log( error ) );
-}
-
 // console.log( JSON.stringify( this.state.data ) );
 // fetch( url , { mode: 'no-cors' } )
 export function loadJson( component, url ) {
 	fetch( url )
 		.then( response => response.json() )
-		.then( data => { component.setState( { data } ) } )
+		.then( data => { component.setState( { data , classy: '' } ) } )
 		.catch( error => console.log( error ) );
 }
 
-export function loadApiNoCors( component, url ) {
-	fetch( url, { mode: 'no-cors' } )
-		.then( response => response )
-		.then( data => { component.setState( { data } ) } )
+export function loadJsonNoCors( component, url ) {
+	fetch( url, { 
+			mode: 'no-cors' ,
+			headers: { 
+				'Content-Type': 'text/json' ,
+				'Access-Control-Allow-Credentials' : true,
+				'Access-Control-Allow-Origin':'*',
+				'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
+				'Access-Control-Allow-Headers':'Content-Type'
+			}
+		} )
+		.then( response => response.json() )
+		.then( data => { component.setState( { data , classy: '' } ) } )
 		.catch( error => console.log( error ) );
 }
 
@@ -50,11 +52,12 @@ export function loadXhr( component, url ) {
 	}
 }
 
-export function handleResponse( component, anyList ) {
+export function handleResponse( component , anyList ) {
 	let data = component.state.data;
 	if ( data === undefined || data === '' || data.length === 0 ) {
 		data = anyList;
 	}
 	console.log( 'data: [' + data + ']' );
-	return { data };
+	let classy = component.state.classy;
+	return { data , classy };
 }

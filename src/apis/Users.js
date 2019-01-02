@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { loadJson, handleResponse } from '../home/Utils';
-import UsersList from './../resources/users.json'
+import UsersList from './../resources/samples/users.json'
 
 const LINK_USER = 'https://randomuser.me/api/?results=';
 
 class Users extends Component {
 
-	constructor ( props ) { super( props ); this.state = { data: [], limit: 40 }; }
+	constructor ( props ) { super( props ); this.state = { data: [], limit: 40 , classy: 'grayish' }; }
 
 	componentDidMount() { loadJson( this, LINK_USER + this.state.limit ); }
 
 	render() {
-		let { data } = handleResponse( this, UsersList );
+		let { data , classy } = handleResponse( this, UsersList );
 		return ( // JSON.stringify( results )
 			<div>
-				<h3 className = "basics">Users limited to: { this.state.limit }!</h3>
+				<h3 className = { "basics " + classy }>Users limited to: { this.state.limit }!</h3>
 				<div className = "basicsGroup" >
 				<div className = "basicsRow usersRow">
 					<div className = "usersNum">#</div>

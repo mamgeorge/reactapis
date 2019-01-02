@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { loadJson, loadApi } from '../home/Utils';
+import { loadJson } from '../home/Utils';
 import { dateTimeFormat } from './../resources/basics.js'
-import ApodList from './../resources/apods.json'
-import ISSList from './../resources/iss.json'
+import ApodList from './../resources/samples/apods.json'
+import ISSList from './../resources/samples/iss.json'
 
 const LINK_APOD = 'https://api.nasa.gov/planetary/apod?date=';
 const NASA_API_KEY = '&api_key=Oo7FtQjALw01loIt8b7nD5aqA1sIb44LSqSjQS9w';
@@ -12,14 +12,21 @@ class Apods extends Component {
 
 	constructor ( props ) {
 		super( props );
-		this.state = { data: [], dataISS: [], dateNew: '' };
+		this.state = { data: [], dataISS: [], dateNew: '' , classy: 'grayish' };
 		this.handleChange = this.handleChange.bind( this );
+	}
+
+	loadJsonIss( component, url ) {
+		fetch( url )
+			.then( response => response.json() )
+			.then( dataISS => { component.setState( { dataISS } ) } )
+			.catch( error => console.log( error ) );
 	}
 
 	componentDidMount() {
 		this.getDateFormatted();
 		loadJson( this, LINK_APOD + this.state.dateNew + NASA_API_KEY );
-		loadApi( this, LINK_ISS );
+		this.loadJsonIss( this, LINK_ISS );
 	}
 
 	getDateFormatted() {
@@ -48,15 +55,16 @@ class Apods extends Component {
 			dataISS = ISSList;
 		}
 		console.log( 'dataISS: [' + dataISS + ']' );
-		//	
-		return { data, dataISS };
+		let classy = this.state.classy;
+		//
+		return { data, dataISS , classy };
 	}
 
 	render() {
-		let { data, dataISS } = this.handleResponses();
+		let { data, dataISS , classy } = this.handleResponses();
 		return ( // JSON.stringify( results )
 			<div>
-				<h3>APOD</h3>&nbsp;&nbsp;
+				<h3 className = { classy } >APOD</h3>&nbsp;&nbsp;
 				ISS: { dataISS.message } / { dataISS.timestamp }
 				(	{ dataISS.iss_position.longitude } ,
 					{ dataISS.iss_position.latitude } )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadJson, handleResponse } from '../home/Utils';
-import PhotosList from './../resources/photos.json'
+import PhotosList from './../resources/samples/photos.json'
 
 const LINK_PHOTOS = 'https://jsonplaceholder.typicode.com/photos';
 
@@ -9,7 +9,7 @@ class Paged extends Component {
 
 	constructor ( props ) {
 		super( props ); this.state = {
-			data: [], starter: 0, offsets: 80, limit: 400
+			data: [], starter: 0, offsets: 80, limit: 400 , classy: 'grayish'
 		};
 	}
 
@@ -36,10 +36,10 @@ class Paged extends Component {
 	render() {
 		let starter = this.state.starter;
 		let offsets = this.state.offsets;
-		let { data } = handleResponse( this, PhotosList );
+		let { data , classy } = handleResponse( this, PhotosList );
 		return ( // JSON.stringify( data )
 			<div>
-				<h3 className="basics">Paged range is: { offsets }!</h3>
+				<h3 className={ 'basics ' + classy }>Paged range is: { offsets }!</h3>
 				<div className="basicsGroup" >{
 					data.slice( starter, starter + offsets ).map( ( item, index ) =>
 						<span className="" key={ item.id } >

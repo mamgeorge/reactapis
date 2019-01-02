@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { loadJson , handleResponse } from '../home/Utils';
-import HacksList from './../resources/hacks.json'
+import HacksList from './../resources/samples/hacks.json'
 
 const LINK_HACKS = 'https://hn.algolia.com/api/v1/search?query=';
 
 class Hacks extends Component {
 
 	constructor(props) { super(props);
-		this.state = { data: [], query: 'react' }; 
+		this.state = { data: [], query: 'react' , classy: 'grayish' }; 
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	componentDidMount() { loadJson(this, LINK_HACKS + this.state.query ); }
+	componentDidMount() { loadJson( this , LINK_HACKS + this.state.query ); }
 	
 	handleChange( evnt ) {
 		let queried = evnt.target.value;
@@ -20,10 +20,10 @@ class Hacks extends Component {
 	}
 
 	render() {
-		let { data } = handleResponse( this, HacksList );
+		let { data , classy } = handleResponse( this, HacksList );
 		return ( // JSON.stringify( results )
 			<div>
-				<h3 className="basics" >Hacks returned:&nbsp;<input onChange = { this.handleChange } 
+				<h3 className={ 'basics ' + classy } >Hacks returned:&nbsp;<input onChange = { this.handleChange } 
 					className = "entr" type = "text" value = { this.state.query } /> !
 					</h3>
 				<div className="basicsGroup" >
