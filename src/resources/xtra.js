@@ -31,6 +31,7 @@ module.exports.showCube = function( intVal ) {
 	console.log( intCube );
 	return intCube ;
 }
+
 module.exports.testResults = function( results , expects ) {
 	//
 	let txtLine = '' ;

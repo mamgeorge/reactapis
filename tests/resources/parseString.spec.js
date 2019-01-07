@@ -1,3 +1,5 @@
+// using mocha, multiple describes ( nested )
+
 const { parse, stringify } = require('../../src/resources/xtra_parseString.js');
 const assert = require('assert');
 

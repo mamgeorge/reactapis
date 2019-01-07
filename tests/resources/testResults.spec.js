@@ -1,3 +1,5 @@
+// testing without framework, but with visual indicators
+ 
 const xtra = require( '../../src/resources/xtra.js' );
 
 console.log( 'testing testResults!' );

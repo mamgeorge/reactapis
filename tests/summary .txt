@@ -1,0 +1,10 @@
+summary.txt 
+
+librarySample.js	// library only
+
+showCube.spec.js	// testing without framework
+testResults.spec.js	// testing without framework, but with visual indicators
+calcsReg.spec.js	// using mocha, multiple "it" tests
+parseString.spec.js	// using mocha, multiple describes ( nested ) 
+temp.spec.js		// using mocha, formatted sample
+async.spec.js		// 

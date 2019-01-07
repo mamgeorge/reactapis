@@ -1,3 +1,4 @@
+// testing without framework
 
 const { showCube } = require( '../../src/resources/xtra' );
 

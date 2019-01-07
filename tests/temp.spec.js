@@ -1,4 +1,6 @@
-const { parse, stringify } = require('../src/resources/xtra_parseString.js');
+// formatted sample
+
+const { parse, stringify } = require( '../src/resources/xtra_parseString.js' );
 const assert = require('assert');
 
 describe('GROUP', function () {
