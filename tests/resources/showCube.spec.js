@@ -1,8 +1,8 @@
 // testing without framework
 
-const { showCube } = require( '../../src/resources/xtra' );
+const { showCube } = require( '../../src/resources/tests/samples' );
+const { assertNew , testRunner } = require( '../../src/resources/tests/constants' );
 
-const { assertNew , testRunner } = require( './librarySample' );
 let results , expects;
 
 	testRunner( 'return 7ⁿ , n=3 !' , function( ) { 

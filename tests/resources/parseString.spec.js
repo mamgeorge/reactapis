@@ -1,6 +1,6 @@
 // using mocha, multiple describes ( nested )
 
-const { parse, stringify } = require('../../src/resources/xtra_parseString.js');
+const { parse, stringify } = require('../../src/resources/tests/parseString.js');
 const assert = require('assert');
 
 describe('testing parseString file!', function () {
