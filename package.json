@@ -12,8 +12,9 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test:org": "react-scripts test --env=jsdom",
 		"test": "nyc mocha tests/**/**.spec.js",
+		"test:org": "react-scripts test --env=jsdom",
+		"test:chk": "nyc mocha tests/resources/queues.spec.js",
 		"eject": "react-scripts eject"
 	},
 	"devDependencies": {
