@@ -14,7 +14,7 @@
 		"build": "react-scripts build",
 		"test": "nyc mocha tests/**/**.spec.js",
 		"test:org": "react-scripts test --env=jsdom",
-		"test:chk": "nyc mocha tests/resources/queues.spec.js",
+		"test:chk": "nyc mocha tests/resources/async.spec.js",
 		"eject": "react-scripts eject"
 	},
 	"devDependencies": {
