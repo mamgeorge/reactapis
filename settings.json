@@ -1,0 +1,27 @@
+{
+	"editor.insertSpaces": false,
+	"editor.fontFamily": "'Lucida Console', Consolas, 'Courier New', monospace",
+	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+	"editor.fontSize": 18,
+	"window.zoomLevel": -1,
+	"editor.renderWhitespace": "boundary",
+	"editor.detectIndentation": false,
+	"workbench.settings.editor": "json",
+	"workbench.colorCustomizations": {
+		"statusBar.background" : "#204080",
+		"statusBar.noFolderBackground" : "#00800",
+		"statusBar.debuggingBackground": "#800000"
+	},
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"workbench.iconTheme": "vscode-icons",
+	
+	"javascript.format.insertSpaceAfterConstructor": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+	"javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+	"vsicons.dontShowNewVersionMessage": true,
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false,
+}
